@@ -15,15 +15,15 @@ public interface JsonPlaceholderService {
     List<Post> findAll();
 
     @GetExchange("/posts/{id}")
-    Post findById(Integer id);
+    Post findById(@PathVariable("id") Integer id);
 
     @PostExchange("/posts")
-    Post create(Post post);
+    Post create(@RequestBody Post post);
 
     @PutExchange("/posts/{id}")
-    Post update(@PathVariable Integer id, Post post);
+    Post update(@PathVariable("id") Integer id, @RequestBody Post post);
 
     @DeleteMapping("/posts/{id}")
-    void delete(@PathVariable Integer id);
+    void delete(@PathVariable("id") Integer id);
 
 }
